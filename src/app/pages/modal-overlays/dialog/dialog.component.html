@@ -51,7 +51,9 @@
         <br>
         <h3 class="title">Names:</h3>
         <ul>
-          <li *ngFor="let name of names">{{ name }}</li>
+          @for (name of names; track name) {
+            <li>{{ name }}</li>
+          }
         </ul>
       </nb-card-body>
     </nb-card>
