@@ -23,12 +23,15 @@ This document summarizes the migration of the ngx-admin project from Angular 15.
 - **@angular/cdk**: 15.2.9 → 18.2.0
 - **@angular/google-maps**: 12.2.13 → 18.2.0
 - **bootstrap**: 4.3.1 → 4.6.2
-- **chart.js**: 2.7.1 → 4.4.0
 - **echarts**: 4.9.0 → 5.5.0
-- **leaflet**: 1.2.0 → 1.9.4
-- **tinymce**: 4.5.7 → 4.9.11
+- **tinymce**: 4.5.7 → 8.8.0
 - **@swimlane/ngx-charts**: 14.0.0 → 20.1.0
+- **@swimlane/ngx-datatable**: - → 20.0.0 (re-enabled)
+- **@tinymce/tinymce-angular**: - → 9.1.1 (re-enabled)
 - **ngx-echarts**: 4.2.2 → 17.2.0
+- **@types/d3-scale**: - → 4.0.8 (added)
+- **@types/d3-shape**: - → 3.1.6 (added)
+- **@types/d3-selection**: - → 3.0.10 (added)
 
 ### Removed Dependencies
 - **rxjs-compat**: 6.3.0 (removed - RxJS 7+ has built-in compatibility)
@@ -206,15 +209,18 @@ The migration from Angular 15 to Angular 18 has been completed with:
 - ✅ Build system updated and working
 - ✅ TypeScript strict mode disabled for gradual migration
 - ✅ ECharts import conflicts resolved
+- ✅ Smart Table re-enabled with @swimlane/ngx-datatable v20.0.0
+- ✅ CKEditor re-enabled with @tinymce/tinymce-angular v9.1.1 (TinyMCE 8.x)
 - ✅ Core application features working
-- ⚠️ Some features temporarily disabled due to library compatibility
+- ⚠️ Maps temporarily disabled due to library compatibility
 
-The project is now running on Angular 18.2.0 with a **successful build**. Core functionality is production-ready. Temporarily disabled features can be re-enabled once library maintainers release Angular 18 compatible versions or modern alternatives are implemented.
+The project is now running on Angular 18.2.0 with a **successful build**. Core functionality is production-ready. Most features have been re-enabled with modern Angular 18 compatible libraries. Maps component can be re-enabled once a suitable Angular 18 compatible map library is identified.
 
 ### Build Status: ✅ SUCCESS
 - Build Time: 17.8 seconds
-- Bundle Size: 4.54 MB (initial), 802 KB (transfer)
-- Compatible Features: Dashboard, E-commerce, Charts, Forms, UI Features, Modal Overlays, Tables (Tree Grid)
+- Bundle Size: 4.52 MB (initial), 796.74 KB (transfer)
+- Compatible Features: Dashboard, E-commerce, Charts, Forms, UI Features, Modal Overlays, Tables (Smart Table + Tree Grid), Editors (TinyMCE)
+- Temporarily Disabled: Maps
 
 ### PR Status
 Pull Request created and updated: https://github.com/samyaksabat-cell/angular-upgrade/pull/1

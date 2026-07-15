@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { NbCardModule } from '@nebular/theme';
-import { CKEditorModule } from 'ng2-ckeditor';
+import { EditorModule } from '@tinymce/tinymce-angular';
 
 import { ThemeModule } from '../../@theme/theme.module';
 
@@ -11,7 +11,7 @@ import { EditorsRoutingModule, routedComponents } from './editors-routing.module
     NbCardModule,
     ThemeModule,
     EditorsRoutingModule,
-    // CKEditorModule, // Temporarily disabled - not Ivy compatible
+    EditorModule,
   ],
   declarations: [
     ...routedComponents,

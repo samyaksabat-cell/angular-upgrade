@@ -54,7 +54,7 @@ const routes: Routes = [{
         .then(m => m.ChartsModule),
     },
     // {
-    //   path: 'editors', // Temporarily disabled - CKEditor not Ivy compatible
+    //   path: 'editors', // Temporarily disabled - CKEditor dependency issues
     //   loadChildren: () => import('./editors/editors.module')
     //     .then(m => m.EditorsModule),
     // },

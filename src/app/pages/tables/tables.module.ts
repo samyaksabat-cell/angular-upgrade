@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { NbCardModule, NbIconModule, NbInputModule, NbTreeGridModule } from '@nebular/theme';
-// import { Ng2SmartTableModule } from 'ng2-smart-table'; // Temporarily disabled
+import { NbCardModule, NbIconModule, NbInputModule, NbTreeGridModule, NbButtonModule } from '@nebular/theme';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { ThemeModule } from '../../@theme/theme.module';
 import { TablesRoutingModule, routedComponents } from './tables-routing.module';
@@ -12,9 +12,10 @@ import { FsIconComponent } from './tree-grid/tree-grid.component';
     NbTreeGridModule,
     NbIconModule,
     NbInputModule,
+    NbButtonModule,
     ThemeModule,
     TablesRoutingModule,
-    // Ng2SmartTableModule, // Temporarily disabled - not Ivy compatible
+    NgxDatatableModule,
   ],
   declarations: [
     ...routedComponents,

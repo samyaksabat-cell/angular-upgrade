@@ -10,7 +10,7 @@ const routes: Routes = [{
   component: TablesComponent,
   children: [
     // {
-    //   path: 'smart-table', // Temporarily disabled - ng2-smart-table not Ivy compatible
+    //   path: 'smart-table', // Temporarily disabled - library compatibility
     //   component: SmartTableComponent,
     // },
     {
