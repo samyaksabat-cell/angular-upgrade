@@ -27,7 +27,7 @@
     "docs:serve": "compodoc -p src/tsconfig.app.json -d docs -s",
     "prepush": "npm run lint:ci",
     "release:changelog": "npm run conventional-changelog -- -p angular -i CHANGELOG.md -s",
-    "postinstall": "ngcc"
+    "postinstall": "echo 'No postinstall needed for Angular 18+'"
   },
   "dependencies": {
     "@angular/animations": "^18.2.0",

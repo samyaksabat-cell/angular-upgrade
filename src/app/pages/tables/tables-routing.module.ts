@@ -9,10 +9,10 @@ const routes: Routes = [{
   path: '',
   component: TablesComponent,
   children: [
-    {
-      path: 'smart-table',
-      component: SmartTableComponent,
-    },
+    // {
+    //   path: 'smart-table', // Temporarily disabled - ng2-smart-table not Ivy compatible
+    //   component: SmartTableComponent,
+    // },
     {
       path: 'tree-grid',
       component: TreeGridComponent,
@@ -28,6 +28,6 @@ export class TablesRoutingModule { }
 
 export const routedComponents = [
   TablesComponent,
-  SmartTableComponent,
+  // SmartTableComponent, // Temporarily disabled
   TreeGridComponent,
 ];
