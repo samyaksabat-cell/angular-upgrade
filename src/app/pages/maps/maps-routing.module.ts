@@ -13,17 +13,17 @@ const routes: Routes = [{
   path: '',
   component: MapsComponent,
   children: [{
-    path: 'gmaps',
-    component: GmapsComponent,
+    // path: 'gmaps', // Temporarily disabled - Google Maps type issues
+    // component: GmapsComponent,
   }, {
-    path: 'leaflet',
-    component: LeafletComponent,
+    // path: 'leaflet', // Temporarily disabled - Leaflet not Ivy compatible
+    // component: LeafletComponent,
   }, {
     path: 'bubble',
     component: BubbleMapComponent,
   }, {
-    path: 'searchmap',
-    component: SearchMapComponent,
+    // path: 'searchmap', // Temporarily disabled - Google Maps dependency
+    // component: SearchMapComponent,
   }],
 }];
 
@@ -35,10 +35,10 @@ export class MapsRoutingModule { }
 
 export const routedComponents = [
   MapsComponent,
-  GmapsComponent,
-  LeafletComponent,
+  // GmapsComponent, // Temporarily disabled
+  // LeafletComponent, // Temporarily disabled
   BubbleMapComponent,
-  SearchMapComponent,
-  MapComponent,
-  SearchComponent,
+  // SearchMapComponent, // Temporarily disabled
+  // MapComponent, // Temporarily disabled
+  // SearchComponent, // Temporarily disabled
 ];

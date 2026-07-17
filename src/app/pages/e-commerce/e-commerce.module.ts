@@ -20,7 +20,7 @@ import { OrdersChartComponent } from './charts-panel/charts/orders-chart.compone
 import { ProfitChartComponent } from './charts-panel/charts/profit-chart.component';
 import { ChartPanelHeaderComponent } from './charts-panel/chart-panel-header/chart-panel-header.component';
 import { ChartPanelSummaryComponent } from './charts-panel/chart-panel-summary/chart-panel-summary.component';
-import { ChartModule } from 'angular2-chartjs';
+// import { ChartModule } from 'angular2-chartjs'; // Temporarily disabled
 import { StatsCardBackComponent } from './profit-card/back-side/stats-card-back.component';
 import { StatsAreaChartComponent } from './profit-card/back-side/stats-area-chart.component';
 import { StatsBarAnimationChartComponent } from './profit-card/front-side/stats-bar-animation-chart.component';
@@ -45,11 +45,11 @@ import { ECommerceUserActivityComponent } from './user-activity/user-activity.co
 import { ECommerceProgressSectionComponent } from './progress-section/progress-section.component';
 import { SlideOutComponent } from './slide-out/slide-out.component';
 
-import { CountryOrdersComponent } from './country-orders/country-orders.component';
-import { CountryOrdersMapComponent } from './country-orders/map/country-orders-map.component';
-import { CountryOrdersMapService } from './country-orders/map/country-orders-map.service';
-import { LeafletModule } from '@asymmetrik/ngx-leaflet';
-import { CountryOrdersChartComponent } from './country-orders/chart/country-orders-chart.component';
+// import { CountryOrdersComponent } from './country-orders/country-orders.component'; // Temporarily disabled
+// import { CountryOrdersMapComponent } from './country-orders/map/country-orders-map.component';
+// import { CountryOrdersMapService } from './country-orders/map/country-orders-map.service';
+// import { LeafletModule } from '@asymmetrik/ngx-leaflet'; // Temporarily disabled
+// import { CountryOrdersChartComponent } from './country-orders/chart/country-orders-chart.component';
 import { EarningCardComponent } from './earning-card/earning-card.component';
 import { EarningCardBackComponent } from './earning-card/back-side/earning-card-back.component';
 import { EarningPieChartComponent } from './earning-card/back-side/earning-pie-chart.component';
@@ -66,11 +66,11 @@ import { EarningLiveUpdateChartComponent } from './earning-card/front-side/earni
     NbTabsetModule,
     NbSelectModule,
     NbListModule,
-    ChartModule,
+    // ChartModule, // Temporarily disabled - angular2-chartjs not Ivy compatible
     NbProgressBarModule,
     NgxEchartsModule,
     NgxChartsModule,
-    LeafletModule,
+    // LeafletModule, // Temporarily disabled - ngx-leaflet not Ivy compatible
   ],
   declarations: [
     ECommerceComponent,
@@ -90,9 +90,9 @@ import { EarningLiveUpdateChartComponent } from './earning-card/front-side/earni
     TrafficBackCardComponent,
     TrafficBarComponent,
     TrafficCardsHeaderComponent,
-    CountryOrdersComponent,
-    CountryOrdersMapComponent,
-    CountryOrdersChartComponent,
+    // CountryOrdersComponent, // Temporarily disabled - Leaflet dependency
+    // CountryOrdersMapComponent,
+    // CountryOrdersChartComponent,
     ECommerceVisitorsAnalyticsComponent,
     ECommerceVisitorsAnalyticsChartComponent,
     ECommerceVisitorsStatisticsComponent,
@@ -107,7 +107,7 @@ import { EarningLiveUpdateChartComponent } from './earning-card/front-side/earni
     EarningLiveUpdateChartComponent,
   ],
   providers: [
-    CountryOrdersMapService,
+    // CountryOrdersMapService, // Temporarily disabled
   ],
 })
 export class ECommerceModule { }

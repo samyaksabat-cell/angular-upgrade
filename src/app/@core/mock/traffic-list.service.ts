@@ -80,6 +80,6 @@ export class TrafficListService extends TrafficListData {
   }
 
   getTrafficListData(period: string): Observable<TrafficList> {
-    return observableOf(this.data[period]);
+    return observableOf(this.data[period as string]);
   }
 }

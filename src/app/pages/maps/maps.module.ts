@@ -10,8 +10,8 @@ import { MapsRoutingModule, routedComponents } from './maps-routing.module';
 @NgModule({
   imports: [
     ThemeModule,
-    GoogleMapsModule,
-    LeafletModule.forRoot(),
+    // GoogleMapsModule, // Temporarily disabled - type definition issues
+    // LeafletModule.forRoot(), // Temporarily disabled - not Ivy compatible
     MapsRoutingModule,
     NgxEchartsModule,
     NbCardModule,

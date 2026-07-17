@@ -1,70 +1,57 @@
 import { Component } from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
-
 import { SmartTableData } from '../../../@core/data/smart-table';
+import { SimpleTableModule, Column } from '@simple-table/angular';
+
+interface User {
+  id: number;
+  firstName: string;
+  lastName: string;
+  username: string;
+  email: string;
+  age: number;
+}
 
 @Component({
   selector: 'ngx-smart-table',
   templateUrl: './smart-table.component.html',
   styleUrls: ['./smart-table.component.scss'],
+  standalone: true,
+  imports: [SimpleTableModule],
 })
 export class SmartTableComponent {
 
-  settings = {
-    add: {
-      addButtonContent: '<i class="nb-plus"></i>',
-      createButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-    },
-    edit: {
-      editButtonContent: '<i class="nb-edit"></i>',
-      saveButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-    },
-    delete: {
-      deleteButtonContent: '<i class="nb-trash"></i>',
-      confirmDelete: true,
-    },
-    columns: {
-      id: {
-        title: 'ID',
-        type: 'number',
-      },
-      firstName: {
-        title: 'First Name',
-        type: 'string',
-      },
-      lastName: {
-        title: 'Last Name',
-        type: 'string',
-      },
-      username: {
-        title: 'Username',
-        type: 'string',
-      },
-      email: {
-        title: 'E-mail',
-        type: 'string',
-      },
-      age: {
-        title: 'Age',
-        type: 'number',
-      },
-    },
-  };
-
-  source: LocalDataSource = new LocalDataSource();
+  rows: User[] = [];
+  temp: User[] = [];
+  columns: Column[] = [
+    { id: 'id', header: 'ID', width: 50 },
+    { id: 'firstName', header: 'First Name' },
+    { id: 'lastName', header: 'Last Name' },
+    { id: 'username', header: 'Username' },
+    { id: 'email', header: 'E-mail' },
+    { id: 'age', header: 'Age', width: 60 },
+    { id: 'actions', header: 'Actions', width: 80 },
+  ];
 
   constructor(private service: SmartTableData) {
-    const data = this.service.getData();
-    this.source.load(data);
+    this.rows = this.service.getData();
+    this.temp = [...this.rows];
   }
 
-  onDeleteConfirm(event): void {
+  onDeleteConfirm(row: User): void {
     if (window.confirm('Are you sure you want to delete?')) {
-      event.confirm.resolve();
-    } else {
-      event.confirm.reject();
+      this.rows = this.rows.filter(r => r.id !== row.id);
     }
+  }
+
+  updateFilter(event: any): void {
+    const val = event.target.value.toLowerCase();
+    const temp = this.temp.filter(function (d) {
+      return d.firstName.toLowerCase().indexOf(val) !== -1 || 
+             d.lastName.toLowerCase().indexOf(val) !== -1 || 
+             d.username.toLowerCase().indexOf(val) !== -1 || 
+             d.email.toLowerCase().indexOf(val) !== -1 || 
+             !val;
+    });
+    this.rows = temp;
   }
 }

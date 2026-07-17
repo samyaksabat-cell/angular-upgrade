@@ -93,6 +93,28 @@ const DATA_SERVICES = [
   { provide: SecurityCamerasData, useClass: SecurityCamerasService },
 ];
 
+const MOCK_SERVICES = [
+  UserService,
+  ElectricityService,
+  SmartTableService,
+  UserActivityService,
+  OrdersChartService,
+  ProfitChartService,
+  TrafficListService,
+  EarningService,
+  OrdersProfitChartService,
+  TrafficBarService,
+  ProfitBarAnimationChartService,
+  TemperatureHumidityService,
+  SolarService,
+  TrafficChartService,
+  StatsBarService,
+  CountryOrderService,
+  StatsProgressBarService,
+  VisitorsAnalyticsService,
+  SecurityCamerasService,
+];
+
 export class NbSimpleRoleProvider extends NbRoleProvider {
   getRole() {
     // here you could provide any role based on any auth flow
@@ -101,43 +123,50 @@ export class NbSimpleRoleProvider extends NbRoleProvider {
 }
 
 export const NB_CORE_PROVIDERS = [
-  ...MockDataModule.forRoot().providers,
-  ...DATA_SERVICES,
-  ...NbAuthModule.forRoot({
-
-    strategies: [
-      NbDummyAuthStrategy.setup({
-        name: 'email',
-        delay: 3000,
-      }),
-    ],
-    forms: {
-      login: {
-        socialLinks: socialLinks,
-      },
-      register: {
-        socialLinks: socialLinks,
-      },
-    },
-  }).providers,
-
-  NbSecurityModule.forRoot({
-    accessControl: {
-      guest: {
-        view: '*',
-      },
-      user: {
-        parent: 'guest',
-        create: '*',
-        edit: '*',
-        remove: '*',
-      },
-    },
-  }).providers,
-
-  {
-    provide: NbRoleProvider, useClass: NbSimpleRoleProvider,
-  },
+  // Mock services
+  UserService,
+  ElectricityService,
+  SmartTableService,
+  UserActivityService,
+  OrdersChartService,
+  ProfitChartService,
+  TrafficListService,
+  EarningService,
+  OrdersProfitChartService,
+  TrafficBarService,
+  ProfitBarAnimationChartService,
+  TemperatureHumidityService,
+  SolarService,
+  TrafficChartService,
+  StatsBarService,
+  CountryOrderService,
+  StatsProgressBarService,
+  VisitorsAnalyticsService,
+  SecurityCamerasService,
+  // Data service providers
+  { provide: UserData, useClass: UserService },
+  { provide: ElectricityData, useClass: ElectricityService },
+  { provide: SmartTableData, useClass: SmartTableService },
+  { provide: UserActivityData, useClass: UserActivityService },
+  { provide: OrdersChartData, useClass: OrdersChartService },
+  { provide: ProfitChartData, useClass: ProfitChartService },
+  { provide: TrafficListData, useClass: TrafficListService },
+  { provide: EarningData, useClass: EarningService },
+  { provide: OrdersProfitChartData, useClass: OrdersProfitChartService },
+  { provide: TrafficBarData, useClass: TrafficBarService },
+  { provide: ProfitBarAnimationChartData, useClass: ProfitBarAnimationChartService },
+  { provide: TemperatureHumidityData, useClass: TemperatureHumidityService },
+  { provide: SolarData, useClass: SolarService },
+  { provide: TrafficChartData, useClass: TrafficChartService },
+  { provide: StatsBarData, useClass: StatsBarService },
+  { provide: CountryOrderData, useClass: CountryOrderService },
+  { provide: StatsProgressBarData, useClass: StatsProgressBarService },
+  { provide: VisitorsAnalyticsData, useClass: VisitorsAnalyticsService },
+  { provide: SecurityCamerasData, useClass: SecurityCamerasService },
+  // Auth and security providers
+  NbSimpleRoleProvider,
+  { provide: NbRoleProvider, useClass: NbSimpleRoleProvider },
+  // Core services
   AnalyticsService,
   LayoutService,
   PlayerService,
